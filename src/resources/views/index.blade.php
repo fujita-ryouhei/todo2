@@ -36,7 +36,7 @@
                 <input type="text" class="create-form__item--input" name="content" value="{{ old('content') }}">
             </div>
             <div class="create-form__category">
-                <select name="" id="" class="create-form__category--select">
+                <select name="category_id" id="" class="create-form__category--select">
                     @foreach($categories as $category)
                     <option value="{{ $category['id'] }}">{{ $category['name'] }}</option>
                     @endforeach
@@ -52,13 +52,13 @@
         <div class="todo__search-ttl">
             <h2 class="search-ttl">Todo検索</h2>
         </div>
-        <form action="/todos" class="search-form" method="post">
+        <form action="/todos/search" class="search-form" method="get">
             @csrf
             <div class="search-form__item">
-                <input type="text" class="search-form__item--input" name="" value="">
+                <input type="text" class="search-form__item--input" name="keyword" value="{{ old('keyword') }}">
             </div>
             <div class="search-form__category">
-                <select name="" id="" class="search-form__category--select">
+                <select name="category_id" id="" class="search-form__category--select">
                     @foreach($categories as $category)
                     <option value="{{ $category['id'] }}">{{ $category['name'] }}</option>
                     @endforeach
